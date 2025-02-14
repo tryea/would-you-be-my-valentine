@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Valentine's Question</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #ffe6e6;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #ff6699;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      h1 {
+        color: #d6336c;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+      #yesBtn {
+        background-color: #ff4d4d;
+        color: white;
+      }
+      #noBtn {
+        background-color: #4da6ff;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Initial Image -->
+      <img
+        id="mainImage"
+        src="asking.jpg"
+        style="width: 300px; height: 300px"
+        alt="Valentine Image"
+      />
+      <!-- Text -->
+      <h1 id="valentineText">Would you be my valentine?</h1>
+      <div style="display: flex; flex-direction: row; justify-content: center">
+        <!-- Buttons -->
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+    </div>
+
+    <script>
+      // Initial scale factor for the yes button
+      let scale = 1;
+
+      // Grab DOM elements
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const mainImage = document.getElementById("mainImage");
+      const valentineText = document.getElementById("valentineText");
+
+      // When the "No" button is clicked, increase the size of the "Yes" button
+      noBtn.addEventListener("click", function () {
+        scale += 0.2;
+        yesBtn.style.transform = "scale(" + scale + ")";
+      });
+
+      // When the "Yes" button is clicked, change the image, update the text, and hide both buttons
+      yesBtn.addEventListener("click", function () {
+        mainImage.src = "happy.jpg";
+        valentineText.innerText = "I knew it you would";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
